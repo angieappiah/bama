@@ -1,0 +1,39 @@
+<h2 class="indent-header">Signup</h2>
+<font color="red"><%= flash[:notice] %></font>
+
+<div class="indent-elements">
+  <%= form_for @designer do |f| %>
+   
+    <label> Name:</label><br>
+    <%= f.text_field :username %>
+    <br><br>
+
+    <label>Email</label><br>
+    <%= f.text_field :email %>
+    <br><br>
+
+    <label>Password:</label><br>
+    <%= f.password_field :password %>
+    <br><br>
+
+    <label>Confirm Password:</label><br>
+    <%= f.password_field :password_confirmation %>
+    <br><br>
+
+
+    <label>location:</label><br>
+    <%= f.text_field :location %>
+    <br><br>
+
+
+    <label>phone:</label><br>
+    <%= f.phone_field :phone %>
+    <br><br>
+
+    <%= f.submit "Sign Up!" %>
+  <% end %>
+  <br><br>
+  
+  <p>Already have an account? <%= link_to "Log In", login_path %></p>
+  <p><%= link_to "Return Home", root_path %></p>
+</div>
