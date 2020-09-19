@@ -21,6 +21,11 @@ class DesignersController < ApplicationController
         redirect_to designer_path(@designer)
     end
 
+    def show
+        @designer = Designer.find_by(id: params[:id])
+        designer.all
+    end
+
     private
 
     def designer_params

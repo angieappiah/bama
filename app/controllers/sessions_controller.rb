@@ -16,8 +16,8 @@ class SessionsController < ApplicationController
             redirect_to users_path(user)
       
            else
-            @designer = Designer.find_by(email: params[:username][:email])
-           if @designer && @designer.authenticate(params[:username][:password])
+            @designer = Designer.find_by(email: params[:email])
+           if @designer && @designer.authenticate(params[:password])
              session[:user_id] = @user.id
              redirect_to users_path(@user)
            else
