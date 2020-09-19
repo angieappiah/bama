@@ -7,19 +7,19 @@ class SessionsController < ApplicationController
     def create
 
         if auth
-            designer = Designer.find_or_create_by(uid: auth['uid']) do |u|
-              u.username = auth['info']['name']
-              u.email = auth['info']['email']
-              u.password = auth['uid']
+            designer = Designer.find_or_create_by(uid: auth['uid']) do |d|
+              d.username = auth['info']['username']
+              d.email = auth['info']['email']
+              d.password = auth['uid']
             end
-            session[:user_id] = user.id
-            redirect_to users_path(user)
+            session[:designer_id] = designer.id
+            redirect_to designers_path(designer)
       
            else
             @designer = Designer.find_by(email: params[:email])
            if @designer && @designer.authenticate(params[:password])
-             session[:user_id] = @user.id
-             redirect_to users_path(@user)
+             session[:designer_id] = @designer.id
+             redirect_to designers_path(@designer)
            else
             render :new
            end
