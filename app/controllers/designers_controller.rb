@@ -2,12 +2,12 @@ class DesignersController < ApplicationController
     #before_action :require_login, only: [:index]
     
     def index 
-        # if session[:user_id]
-        #    designer =Designer.find(session[:user_id])
-        #     redirect_to designer_path(designer)
-        #   else
-        #     render :index
-        # end
+        if session[:user_id]
+           designer =Designer.find(session[:designer_id])
+            redirect_to designer_path(designer)
+          else
+            render :index
+        end
     end
 
     def new
@@ -19,7 +19,7 @@ class DesignersController < ApplicationController
         @designer = Designer.new(designer_params)
         return redirect_to designer_path unless @designer.save
         session[:designer_id] = @designer.id
-        #redirect_to designer_path(@designer)
+        redirect_to designer_path(@designer)
     end
 
     def show
