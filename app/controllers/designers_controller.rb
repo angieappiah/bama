@@ -24,9 +24,6 @@ class DesignersController < ApplicationController
 
     def show
         @designer = Designer.find_by(id: params[:id])
-        if @designer.id != current_user.id
-            redirect_to root_path
-       end
 
     end
 

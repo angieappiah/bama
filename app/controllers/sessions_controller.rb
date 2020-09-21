@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
               d.password = auth['uid']
             end
             session[:designer_id] = designer.id
-            redirect_to designers_path(designer)
+            redirect_to designer_path(designer)
       
            else
             @designer = Designer.find_by(email: params[:email])
