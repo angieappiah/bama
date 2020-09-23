@@ -1,17 +1,17 @@
 class PiecesController < ApplicationController
 
     def index
-        @piece = Piece.new
-        if params[:piece]
-          @piece = piece.find_by(id: params[:id])
-          if @pieces.empty?
-            redirect_to new_piece_path(@piece)
-          else
-            @pieces = @style.pieces
-          end
-         else
-        @pieces = Piece.all
-        end
+        # @piece = Piece.new
+        # if params[:piece]
+        #   @piece = piece.find_by(id: params[:id])
+        #   if @pieces.empty?
+        #     redirect_to new_piece_path(@piece)
+        #   else
+        #     @pieces = @style.pieces
+        #   end
+        #  else
+        @piece = Piece.all
+       
     end
 
 
@@ -20,6 +20,7 @@ class PiecesController < ApplicationController
     end
 
     def create
+      @piece = Piece.find_by_id(params[:id])
       @piece = Piece.new(piece_params)
       if @piece.save
         redirect_to piece_path(@piece)
@@ -44,6 +45,7 @@ class PiecesController < ApplicationController
 
     def show
       @piece = Piece.find_by(id: params[:id])
+      @piece = Piece.all
     
     end
 

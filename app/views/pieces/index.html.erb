@@ -1,24 +1,10 @@
 
 <h1>All Pieces</h1>
-<div>
-    <% @pieces.each do |piece| %>
-        <label>Medium: </label>
-        <%= piece.medium %>
-        <br>
-        <label>Size: </label>
-        <%= piece.size %>
-        <br>
-        <label>Comment: </label>
-        <%= piece.comment %>
-        <br>
-        <label>Image: </label>
-        <%= piece.image %>
-        <br>
-    <% end %>
-
+<%= render 'form' %>
 
   <div class="indent-elements">
    <%= link_to "Add New piece", new_piece_path %><br><br>
+   <p><%= link_to "Return Home", root_path %></p>
   </div>
 
-</div>
+
