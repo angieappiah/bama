@@ -1,0 +1,4 @@
+<h2 class="indent-header"><%= @location.name %></h2>
+
+<%= button_to 'Delete', style_path(@style), method: :delete %>
+<%=link_to "New Style", new_style_piece_path(@style)%>

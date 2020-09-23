@@ -34,7 +34,7 @@ class StylesController < ApplicationController
   
    def show
      @style = Style.find_by(id: params[:id])
-     @style = Style.all
+     #@style = Style.all
       
     end
   
