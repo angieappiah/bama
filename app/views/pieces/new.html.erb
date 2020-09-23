@@ -14,7 +14,7 @@
 
 
     <label>Add Style To An Existing Piece :</label><br>
-    <%= f.collection_select(:style_id, Style.all, :id, :medium, selected: params[:style_id]) %>
+    <%= f.collection_select(:style_id, Style.all, :id, :name, selected: params[:style_id]) %>
     <br><br>
 
     <p>Can't Find Your Style?, please add it <%= link_to "here", new_style_path %> first</p>
