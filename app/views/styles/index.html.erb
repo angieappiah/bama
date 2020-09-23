@@ -1,0 +1,18 @@
+
+<h2 class="indent-header">Your Styles</h2>
+
+<div class="indent-elements">
+  <% @style.each do |style| %>
+    <div>
+      <h3><%= link_to style.name, style_pieces_path(style) %></h3>
+      <ul>
+        <li><%= style.method %></li>
+      
+      </ul>
+    </div>
+  <% end %>
+  <%= link_to "here", new_style_path %> For New style</p>
+
+  <%= link_to "Return Home", root_path %>
+
+</div>

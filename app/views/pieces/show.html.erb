@@ -1,6 +1,11 @@
 <div class="indent-elements">
   <h4>You can click to see all Styles:</h4>
 
+  <ul>
+   <li><%= link_to @style.name, styles_path(@style) %></li>
+  
+  </ul>
+
   
  <%= link_to "Return Home", root_path %>
 </div>
