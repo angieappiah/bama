@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     def create
 
         if auth
-            designer = Designer.find_or_create_by(uid: auth['uid']) do |d|
+            @designer = Designer.find_or_create_by(uid: auth['uid']) do |d|
               d.username = auth['info']['username']
               d.email = auth['info']['email']
               d.password = auth['uid']

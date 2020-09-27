@@ -1,26 +1,7 @@
-<h2 class="indent-header">Add Your Work Piece Here. </h2>
+<%if @style%>
+  <h1> Create a Piece for <%=@style.name%></h1>
+<%else%>
+  <h1> Create a Piece </h1>
+<%end%>
+<%= render 'form' %>
 
-
-<%= form_for @piece do |f| %>
-    <label>Medium: </label>
-    <%= f.text_field :medium %>
-    <br>
-    <label> Size: </label>
-    <%= f.text_field :size %>
-    <br>
-    <label>Comment: </label>
-    <%= f.text_field :comment %>
-    <br>
-
-
-    <label>Add Style To An Existing Piece :</label><br>
-    <%= f.collection_select(:style_id, Style.all, :id, :name, selected: params[:style_id]) %>
-    <br><br>
-
-    <p>Can't Find Your Style?, please add it <%= link_to "here", new_style_path %> first</p>
-
-    <%= f.submit%>
-    <br>
-
-    <p><%= link_to "Return Home", root_path %></p>
-<% end %>

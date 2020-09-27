@@ -1,9 +1,11 @@
-<div class="indent-elements">
-<% if @piece.empty? %>
-  <% @piece.each do |piece| %>
-    <h3><%=link_to piece.medium, pieces_path %></h3>
-  <% end %>
-  <% else %>
-    <h5>No Pieces....yet</h5>
+<% if !@pieces.empty? %>
+<% @pieces.each do |p| %>
+  <h3><%=link_to p.medium, piece_path(p) %></h3>
+
 <% end %>
-</div>
+<% else %>
+<h2>No Pieces....yet</h2>
+<% end %>
+
+
+ 
