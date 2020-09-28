@@ -1,7 +1,16 @@
-<%if @style%>
-  <h1> Create a Piece for <%=@style.name%></h1>
-<%else%>
-  <h1> Create a Piece </h1>
-<%end%>
-<%= render 'form' %>
+<h2 class="indent-header">Create A Piece</h2>
+
+<%= form_for @piece do |f| %>
+  <label>Name:</label><br>
+  <%= f.text_field :medium %>
+  <br><br>
+  <label>Style Name:</label><br>
+  <%= f.collection_select(:style_id, Style.all, :id, :name, selected: params[:style_id]) %>
+  <br><br>
+  <%= f.submit %>
+  <%end%>
+  <br><br>
+  <p>If your piece's style is not listed, please add it <%= link_to "here", new_style_path %> first</p>
+
+
 

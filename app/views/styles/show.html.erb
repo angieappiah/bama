@@ -1,4 +1,13 @@
 <h2>This Style</h2>
+<h2 class="indent-header"><%= @style.name %></h2>
+
+<div class="indent-elements">
+  <p><%= @style.method %></p>
+  <ul>
+    <%= @style.pieces.each do |piece| %>
+      <li><%= link_to piece.medium, style_piece_path(@style, piece) %></li>
+    <% end %>
+  </ul>
 
 <%= button_to 'Delete', style_path(@style), method: :delete %>
 <%=link_to "Add New Style", new_style_piece_path(@style)%>

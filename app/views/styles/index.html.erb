@@ -2,7 +2,7 @@
 <h2 class="indent-header">Your Styles</h2>
 
 <div class="indent-elements">
-  <% @style.each do |style| %>
+  <% @styles.each do |style| %>
     <div>
       <h3><%= link_to style.name, style_pieces_path(style) %></h3>
       <ul>

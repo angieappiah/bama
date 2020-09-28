@@ -1,11 +1,14 @@
-<% if !@pieces.empty? %>
-<% @pieces.each do |p| %>
-  <h3><%=link_to p.medium, piece_path(p) %></h3>
+<!-- if !@piece.empty? -->
+<!-- @piece.each do |p| -->
+  <ul>
+   <li><%= link_to @piece.medium, pieces_path(@piece) %></li>
+  
+  </ul>
 
-<% end %>
-<% else %>
-<h2>No Pieces....yet</h2>
-<% end %>
+ <!-- end -->
+ <!-- else -->
+ <h2>No Pieces....yet</h2>
+
 
 
  

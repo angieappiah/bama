@@ -1,7 +1,7 @@
 class StylesController < ApplicationController
 
     def index
-        @style = Style.all
+        @styles = Style.all
     end
 
     def new
@@ -9,7 +9,7 @@ class StylesController < ApplicationController
     end
   
     def create
-       @style = Style.find_by_id(params[:id])
+       #@style = Style.find_by_id(params[:id])
        @style = Style.new(style_params)
        if @style.save
          redirect_to style_path(@style)
@@ -33,7 +33,7 @@ class StylesController < ApplicationController
     end
   
    def show
-     @style = Style.find_by(id: params[:id])
+     @style = Style.find(params[:id])
      #@style = Style.all
       
     end
