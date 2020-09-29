@@ -1,13 +1,13 @@
-<!-- if !@piece.empty? -->
-<% @pieces.each do |piece| %>
-  <ul>
-   <li><%= link_to piece.medium, piece_path(piece) %></li>
-  
-  </ul>
+<div class="indent-elements">
+  <% if !@pieces.empty? %>
+    <% @pieces.each do |p| %>
+      <h3><%=link_to p.medium, piece_path(p) %></h3>
 
- <%end%>
- <!-- else -->
- <h2>No Pieces....yet</h2>
+    <% end %>
+    <% else %>
+      <h2>No pieces....yet</h2>
+  <% end %>
+</div>
 
 
 

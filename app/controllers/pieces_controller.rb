@@ -10,6 +10,7 @@ class PiecesController < ApplicationController
   #   end
   #   else
      @pieces = Piece.all
+     #@styles = Style.all
     # end
 
   end
@@ -22,13 +23,20 @@ class PiecesController < ApplicationController
     def create
       style = Style.find(params[:piece][:style_id].to_i)
       #@piece = Piece.find_by_id(params[:id])
-      @piece = Piece.new(piece_params)
       @piece.style_id = style.id
+      #@piece = Piece.new(piece_params)
       if @piece.save
         redirect_to piece_path(@piece)
       else
         render :new
       end
+    end
+
+    def show
+      @piece = Piece.find_by(id: params[:id])
+      @style = Style.find(@piece.style_id)
+      #@piece = Piece.all
+    
     end
 
     def edit
@@ -45,12 +53,6 @@ class PiecesController < ApplicationController
       end
     end
 
-    def show
-      @piece = Piece.find_by(id: params[:id])
-      #@style = Style.find(@piece.style_id)
-      #@piece = Piece.all
-    
-    end
 
     def delete
       @piece = Piece.find_by_id(params[:id])
