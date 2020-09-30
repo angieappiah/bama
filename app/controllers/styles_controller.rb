@@ -17,6 +17,12 @@ class StylesController < ApplicationController
          render :new
      end
     end
+
+    def show
+      @style = Style.find(params[:id])
+      #@style = Style.all
+       
+    end
   
     def edit
        @style = Style.find_by_id(params[:id])
@@ -32,11 +38,6 @@ class StylesController < ApplicationController
       end
     end
   
-   def show
-     @style = Style.find(params[:id])
-     #@style = Style.all
-      
-    end
   
    def delete
      @style = Style.find_by_id(params[:id])

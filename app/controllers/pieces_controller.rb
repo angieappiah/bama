@@ -1,4 +1,6 @@
 class PiecesController < ApplicationController
+
+
    def index
      if params[:style_id]
         @style_id = Style.find_by(id: params[:style_id])
@@ -22,8 +24,8 @@ class PiecesController < ApplicationController
 
 
     def create
-      @piece = Piece.new(piece_params)
       style = Style.find(params[:piece][:style_id].to_i)
+      @piece = Piece.new(piece_params)
       @piece.style_id = style.id
       
       if @piece.save
@@ -35,23 +37,7 @@ class PiecesController < ApplicationController
 
     def show
       @piece = Piece.find(params[:id])
-      @style = Style.find(@piece.style_id)
-      #@piece = Piece.all
-    
-    end
-
-    def edit
-      @piece = Piece.find_by_id(params[:id])
-    end
-
-    def update
-      @piece = Piece.find_by_id(params[:id])
-
-      if @piece.update(piece_params)
-        redirect_to @piece
-      else
-        render :edit
-      end
+      @style = Style.find(@piece.style_id) 
     end
 
 
