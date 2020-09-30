@@ -23,7 +23,7 @@ class DesignersController < ApplicationController
     end
 
     def show
-        @designer = Designer.find_by(id: params[:id])
+        @designer = Designer.find(params[:id])
 
     end
 

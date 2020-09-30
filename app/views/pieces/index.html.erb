@@ -1,6 +1,8 @@
 
 <h1>Pieces</h1>
-<%= render 'form' %>
+<% @pieces.each do |piece| %>
+  <p><%= piece.medium %></p>
+  <% end %>
 <br>
 
   <%= link_to "Add New piece", new_piece_path %><br><br>

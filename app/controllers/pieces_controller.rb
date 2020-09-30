@@ -22,8 +22,8 @@ class PiecesController < ApplicationController
 
 
     def create
-      style = Style.find(params[:piece][:style_id].to_i)
       @piece = Piece.new(piece_params)
+      style = Style.find(params[:piece][:style_id].to_i)
       @piece.style_id = style.id
       
       if @piece.save
