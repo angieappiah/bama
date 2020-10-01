@@ -1,5 +1,8 @@
 <h2 class="indent-header">Log In</h2>
 
+<font color="red"><%= flash[:notice] %></font>
+<br><br>
+
 <div class="indent-elements">
   <%= form_for :designer, url: '/login' do |f| %>
   <%= f.label :email %><br>

@@ -17,13 +17,19 @@
 <font color="red"><%= flash[:alert] %></font><br>
 
 
-<%= form_for @piece do |f| %>
-  <label>Name:</label><br>
+<%= form_for :piece, url: '/pieces' do |f|  %>
+  <label>Medium:</label><br>
   <%= f.text_field :medium %>
   <br><br>
+
   <label>Style Name:</label><br>
   <%= f.collection_select(:style_id, Style.all, :id, :name, selected: params[:style_id]) %>
   <br><br>
+
+  <label>Comment:</label><br>
+  <%= f.text_field :comment %>
+  <br><br>
+  
   <%= f.submit %>
   <%end%>
   <br><br>

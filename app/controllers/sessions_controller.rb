@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def create
+      flash[:notice] = 'Email or password is incorrect.'
 
         if auth
             @designer = Designer.find_or_create_by(uid: auth['uid']) do |d|

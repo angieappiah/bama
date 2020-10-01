@@ -3,7 +3,7 @@ class DesignersController < ApplicationController
     
     def index 
         if session[:user_id]
-           designer =Designer.find(session[:designer_id])
+           designer = Designer.find(session[:designer_id])
             redirect_to designer_path(designer)
           else
             render :index
@@ -24,6 +24,7 @@ class DesignersController < ApplicationController
 
     def show
         @designer = Designer.find(params[:id])
+        @piece = Piece.find(params[:id])
 
     end
 
