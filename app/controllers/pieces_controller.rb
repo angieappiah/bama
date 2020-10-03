@@ -1,32 +1,31 @@
 class PiecesController < ApplicationController
 
 
-   def index
-     if params[:style_id]
-        @style_id = Style.find_by(id: params[:style_id])
-     if @style.piece.empty?
-        flash[:alert] = "This style has no pieces. Please add one below."
-        redirect_to new_style_piece_path(@style)
-     else
+  def index
+    @piece = Piece.new
+    if params[:piece]
+      @piece = piece.find_by(id: params[:id])
+      if @pieces.empty?
+        redirect_to new_piece_path(@piece)
+      else
         @pieces = @style.pieces
-     end
+      end
      else
-       @pieces = Piece.all
-      
-     end
-
+    @pieces = Piece.all
     end
+  end
 
 
     def new
       @piece = Piece.new
+      @style = Style.find_by(id: params[:style_id])
     end
 
 
     def create
       style = Style.find(params[:piece][:style_id].to_i)
       @piece = Piece.new(piece_params)
-      @piece.style_id = style.id
+      # @piece.style_id = style.id
       
       if @piece.save
         redirect_to piece_path(@piece)
@@ -36,6 +35,7 @@ class PiecesController < ApplicationController
     end
 
     def show
+     #@piece = Piece.find_by(id: params[:id])
      @piece = Piece.all
       #@style = Style.find(@piece.style_id) 
     end
