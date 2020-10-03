@@ -3,10 +3,10 @@ class PiecesController < ApplicationController
 
   def index
     @piece = Piece.new
-    if params[:piece]
-      @piece = piece.find_by(id: params[:id])
-      if @pieces.empty?
-        redirect_to new_piece_path(@piece)
+    if params[:style_id]
+      @style = Style.find_by(id: params[:style_id])
+      if @style.pieces.empty?
+        redirect_to new_style_piece_path(@style)
       else
         @pieces = @style.pieces
       end
@@ -18,13 +18,13 @@ class PiecesController < ApplicationController
 
     def new
       @piece = Piece.new
-      @style = Style.find_by(id: params[:style_id])
     end
 
 
     def create
       style = Style.find(params[:piece][:style_id].to_i)
       @piece = Piece.new(piece_params)
+      @piece.style_id = style.id
       # @piece.style_id = style.id
       
       if @piece.save
@@ -35,9 +35,8 @@ class PiecesController < ApplicationController
     end
 
     def show
-     #@piece = Piece.find_by(id: params[:id])
-     @piece = Piece.all
-      #@style = Style.find(@piece.style_id) 
+        @designer = Designer.find(params[:id])
+        @style = Style.find(@piece.style_id)
     end
 
 

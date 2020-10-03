@@ -26,6 +26,7 @@
   <%= f.collection_select(:style_id, Style.all, :id, :name, selected: params[:style_id]) %>
   <br><br>
 
+
   <label>Comment:</label><br>
   <%= f.text_field :comment %>
   <br><br>
