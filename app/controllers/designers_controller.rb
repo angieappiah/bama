@@ -2,7 +2,7 @@ class DesignersController < ApplicationController
     #before_action :require_login, only: [:index]
     
     def index 
-        if session[:user_id]
+        if session[:designer_id]
            designer = Designer.find(session[:designer_id])
             redirect_to designer_path(designer)
           else
@@ -23,8 +23,8 @@ class DesignersController < ApplicationController
     end
 
     def show
-        @designer = Designer.find(params[:id])
-        @piece = Piece.find(params[:id])
+        @designer = Designer.find_by(id: params[:id])
+        @piece = Piece.all
 
     end
 
