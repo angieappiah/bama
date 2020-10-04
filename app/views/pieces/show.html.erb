@@ -1,4 +1,6 @@
 <h2> piece </h2>
- 
-<%= render 'form'%>
- <%= link_to "Return Home", root_path %>
+
+<ul>
+  <li><%= link_to @style.name, styles_path(@style) %></li>
+  <li><%= @style.method %></li>
+</ul>

@@ -52,6 +52,6 @@ class PiecesController < ApplicationController
   private
 
   def piece_params
-    params.require(:piece).permit(:medium, :image, :size, :comment, :designer_id, :style_id)
+    params.require(:piece).permit(:medium, :image, :size, :comment, :designer_id, :style_id, style_attributes: %[ name method])
   end 
 end
