@@ -35,7 +35,8 @@ class PiecesController < ApplicationController
     end
 
     def show
-        @designer = Designer.find(params[:id])
+      @pieces = Piece.all
+        #@designer = Designer.find(params[:id])
         #@style = Style.find(@piece.style_id)
     end
 
